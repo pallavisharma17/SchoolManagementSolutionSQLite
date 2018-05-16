@@ -1,0 +1,151 @@
+<!doctype html>
+ <html class="no-js" lang=""> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning Management Solution</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+
+        <!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                    </li>
+                    <h3 class="menu-title"><i class="fa fa-suitcase" aria-hidden="true"></i> Courses</h3><!-- /.menu-title -->
+                    
+                    <li><a href="tables-courses.html">All Courses</a></li>
+                    <li><a href="forms-courses.html">New Course</a></li>              
+                  
+                    <h3 class="menu-title"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Students</h3><!-- /.menu-title -->
+
+                    <li><a href="tables-students.html">All Students</a></li>
+                   
+                    <h3 class="menu-title"><i class="menu fa fa-book"></i> Subjects</h3><!-- /.menu-title -->
+
+                    <li><a href="tables-subjects.html">All Subjects</a></li>
+                   
+                    <h3 class="menu-title"><i class="fa fa-user" aria-hidden="true"></i> Teachers</h3><!-- /.menu-title -->
+
+                    <li><a href="tables-teachers.html">All Teachers</a></li>                   
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>School Management Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content mt-3">
+                <div class="animated fadeIn">
+                    <div id="app" class="row">
+    
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">{{title}}</strong>
+                            </div>
+                           
+                            <div v-for="batch in batches">
+                                    <div class="card-body" v-if="batch.batchName[3]>'8'">                                                                           
+                                            {{batch.batchName}}   
+                                     </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+    
+                    </div><!--row end-->
+                </div><!-- .animated -->
+            </div><!-- .content -->
+
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+    <script>
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    title:'Upcoming Batches',
+                    batches:[]                               
+                },
+                created() {
+                    axios.get('http://localhost:5555/api/batches')
+                        .then((response) => {
+                            this.batches=response.data
+                            
+                        })
+                        .catch((err)=>{
+                            console.log(err)
+                        })                     
+                }
+               
+            })
+        </script>
+
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
