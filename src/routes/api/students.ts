@@ -53,7 +53,7 @@ students.get('/:id/batches', (req, res) => {
         })
 });
 
-//add a student
+//add a student to a batch
 students.post('/:id/batches', (req, res) => {
     return BatchStudent.create({
         batchId: req.body.batchId,
