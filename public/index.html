@@ -105,7 +105,7 @@
                             </div>
                            
                             <div v-for="batch in batches">
-                                    <div class="card-body" v-if="batch.batchName[3]>'8'">                                                                           
+                                    <div class="card-body" v-if="(parseInt(batch.batchName[2])*10+parseInt(batch.batchName[3]))>18">                                                                           
                                             {{batch.batchName}}   
                                      </div>
                             </div>
