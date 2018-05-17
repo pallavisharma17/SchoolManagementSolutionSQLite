@@ -275,7 +275,7 @@
                     batchId:''
                 },
                 created() {
-                    axios.get('http://localhost:5555/api/students')
+                    axios.get('/api/students')
                         .then((response) => {
                             this.students = response.data;
                         })
@@ -286,7 +286,7 @@
                 methods: {
                
                 getStudents() {
-                    axios.get('http://localhost:5555/api/students')
+                    axios.get('/api/students')
                         .then((response) => {
                             this.students = response.data;
                         })
@@ -303,7 +303,7 @@
 
                 addStudent(){
 
-                    let url = 'http://localhost:5555/api/students';
+                    let url = '/api/students';
                     let param = {
                         studentRoll: this.studentRoll,
                         studentName: this.studentName
@@ -330,7 +330,7 @@
 
                 searchStudent(){
                     
-                    axios.get('http://localhost:5555/api/students/'+this.studentId)
+                    axios.get('/api/students/'+this.studentId)
                         .then((response) => {
                             this.searchResult = response.data;
                             console.log(this.searchResult)
@@ -345,7 +345,7 @@
 
                 showBatchesForm(){
 
-                    axios.get('http://localhost:5555/api/batches')
+                    axios.get('/api/batches')
                         .then((response) => {
                             this.batches=response.data  
                             console.log(response.data)                          
@@ -358,7 +358,7 @@
 
                 addBatch(){
 
-                    let url = 'http://localhost:5555/api/students/'+this.searchResult.id+'/batches';
+                    let url = '/api/students/'+this.searchResult.id+'/batches';
                     let param = {
                         batchId: this.batchId,
                     }

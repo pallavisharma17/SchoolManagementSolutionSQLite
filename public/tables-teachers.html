@@ -184,7 +184,7 @@
                     showTeacherForm:false                                
                 },
                 created() {
-                    axios.get('http://localhost:5555/api/teachers')
+                    axios.get('/api/teachers')
                         .then((response) => {
                             this.teachers = response.data;
                         })
@@ -195,7 +195,7 @@
                 methods: {
                
                 getTeachers() {
-                    axios.get('http://localhost:5555/api/teachers')
+                    axios.get('/api/teachers')
                         .then((response) => {
                             this.teachers = response.data;
                         })
@@ -206,7 +206,7 @@
 
                  showaddTeacherForm(){
                       
-                    axios.get('http://localhost:5555/api/subjects')
+                    axios.get('/api/subjects')
                         .then((response) => {
                             this.subjects = response.data;
                         })
@@ -219,7 +219,7 @@
 
                 addTeacher(){
 
-                    let url = 'http://localhost:5555/api/teachers/'+this.subjectId;
+                    let url = '/api/teachers/'+this.subjectId;
                     let param = {                       
                         teacherName: this.teacherName
                     }

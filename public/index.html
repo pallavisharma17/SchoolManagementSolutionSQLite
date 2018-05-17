@@ -129,7 +129,7 @@
                     batches:[]                               
                 },
                 created() {
-                    axios.get('http://localhost:5555/api/batches')
+                    axios.get('/api/batches')
                         .then((response) => {
                             this.batches=response.data
                             

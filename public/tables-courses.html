@@ -342,7 +342,7 @@
                     studentId:''
                 },
                 created() {
-                    axios.get('http://localhost:5555/api/courses')
+                    axios.get('/api/courses')
                         .then((response) => {
                             this.courses = response.data;
                         })
@@ -355,7 +355,7 @@
                     this.showCourses=false;
                     this.showBatches=true;
 
-                    let url = 'http://localhost:5555/api/courses/'
+                    let url = '/api/courses/'
                     this.courseId=cid;            
 
                     axios.get(url+cid+'/batches')
@@ -377,7 +377,7 @@
                 },
                 addBatch(){
                     
-                    let url = 'http://localhost:5555/api/courses/';
+                    let url = '/api/courses/';
                     let param = {
                         batchName: this.batchName,
                     }
@@ -400,7 +400,7 @@
                     this.showLectures=true;
 
 
-                    let url = 'http://localhost:5555/api/courses/'
+                    let url = '/api/courses/'
                    
                     axios.get(url+this.courseId+'/batches/'+bid+'/lectures')
                         .then((response) => {
@@ -419,7 +419,7 @@
                 showaddLectureForm(){
                     this.showLectureForm=true;
                     this.showStudentForm=false;
-                    let url = 'http://localhost:5555/api/courses/'
+                    let url = '/api/courses/'
 
                     axios.get(url+this.courseId+'/batches/'+this.batchId+'/teachers')
                         .then((response) => {
@@ -434,7 +434,7 @@
 
                 addLecture(){
 
-                    let url = 'http://localhost:5555/api/courses/'+this.courseId+'/batches/'+this.batchId+'/lectures';
+                    let url = '/api/courses/'+this.courseId+'/batches/'+this.batchId+'/lectures';
                     let param = {
                         tid: this.teacherId,
                     }
@@ -455,7 +455,7 @@
                     this.showBatches=false;
                     this.showStudents=true;
 
-                    let url = 'http://localhost:5555/api/courses/'+this.courseId+'/batches/'+bid+'/students'
+                    let url = '/api/courses/'+this.courseId+'/batches/'+bid+'/students'
                    
                     axios.get(url)
                         .then((response) => {
@@ -473,7 +473,7 @@
                  showaddStudentForm(){
                     this.showStudentForm=true;
                     this.showLectureForm=false;
-                    let url = 'http://localhost:5555/api/students';
+                    let url = '/api/students';
 
                     axios.get(url)
                         .then((response) => {
@@ -490,7 +490,7 @@
 
                      this.showLectureForm=false;
                      this.showStudentForm=false;
-                    let url = 'http://localhost:5555/api/students/'+this.studentId+'/batches';
+                    let url = '/api/students/'+this.studentId+'/batches';
                     let param = {
                         batchId: this.batchId,
                     }

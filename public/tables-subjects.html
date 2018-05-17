@@ -184,7 +184,7 @@
                     courses:[]               
                 },
                 created() {
-                    axios.get('http://localhost:5555/api/subjects')
+                    axios.get('/api/subjects')
                         .then((response) => {
                             this.subjects = response.data;
                         })
@@ -195,7 +195,7 @@
                 methods: {
                
                 getSubjects() {
-                    axios.get('http://localhost:5555/api/subjects')
+                    axios.get('/api/subjects')
                         .then((response) => {
                             this.subjects = response.data;
                         })
@@ -206,7 +206,7 @@
 
                  showaddSubjectForm(){
                       
-                    axios.get('http://localhost:5555/api/courses')
+                    axios.get('/api/courses')
                         .then((response) => {
                             this.courses = response.data;
                         })
@@ -219,7 +219,7 @@
 
                 addSubject(){
 
-                    let url = 'http://localhost:5555/api/subjects/'+this.courseId;
+                    let url = '/api/subjects/'+this.courseId;
                     let param = {                       
                         subjectName: this.subjectName
                     }
